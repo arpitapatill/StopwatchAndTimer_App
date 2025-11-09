@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stopwatch & Timer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+
+  <main class="app">
+    <header class="app-header">
+      <h1>Stopwatch & Timer</h1>
+      <nav class="tabs" role="tablist" aria-label="Mode">
+        <button class="tab active" data-mode="stopwatch" role="tab" aria-selected="true">Stopwatch</button>
+        <button class="tab" data-mode="timer" role="tab" aria-selected="false">Timer</button>
+      </nav>
+    </header>
+
+    <!-- STOPWATCH -->
+    <section id="stopwatch" class="panel">
+      <div class="display" aria-live="polite" id="sw-display">00:00.000</div>
+
+      <div class="controls">
+        <button id="sw-start" class="btn primary">Start</button>
+        <button id="sw-stop" class="btn" disabled>Stop</button>
+        <button id="sw-lap" class="btn" disabled>Lap</button>
+        <button id="sw-reset" class="btn danger" disabled>Reset</button>
+      </div>
+
+      <div class="laps" id="laps" aria-label="Laps">
+        <h3>Laps</h3>
+        <ol id="laps-list"></ol>
+      </div>
+    </section>
+
+    <!-- TIMER -->
+    <section id="timer" class="panel hidden">
+      <div class="timer-setup">
+        <label>
+          Minutes
+          <input id="timer-min" type="number" min="0" max="999" value="0" inputmode="numeric" />
+        </label>
+        <label>
+          Seconds
+          <input id="timer-sec" type="number" min="0" max="59" value="30" inputmode="numeric" />
+        </label>
+      </div>
+
+      <div class="display" id="timer-display" aria-live="polite">00:30</div>
+
+      <div class="controls">
+        <button id="tm-start" class="btn primary">Start</button>
+        <button id="tm-pause" class="btn" disabled>Pause</button>
+        <button id="tm-reset" class="btn danger" disabled>Reset</button>
+      </div>
+
+      <div class="timer-info" id="timer-info" aria-hidden="true"></div>
+    </section>
+
+    <footer class="app-footer">
+      <small>Responsive • Keyboard-friendly • No dependencies</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
